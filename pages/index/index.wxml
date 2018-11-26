@@ -1,0 +1,18 @@
+<view class='index'>
+  <!-- 轮播 -->
+  <swiper  class='swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-active-color="#a5b730" indicator-color="#ccc">
+    <block wx:for="{{imgUrls}}" wx:key="unique">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='code-wrap'>
+    <!-- <image class="code"  src="{{img}}" mode='aspectFit'></image> -->
+    <!-- <view class='tip'>门店点餐时可出示此会员码，支付后即可累计积分</view> -->
+    <!-- <view class='pay-btn' hover-class='hover'>微信支付</view> -->
+  </view>
+  <!-- <image class="banner" mode='aspectFit' src="/image/bgone@3x.png"></image> -->
+  <view class='btn fw' hover-class='hover' bindtap='selectShop'>自助点单</view>
+  <image class="banner2" mode='aspectFit' src="/image/bgtwo@3x.png"></image>
+</view>

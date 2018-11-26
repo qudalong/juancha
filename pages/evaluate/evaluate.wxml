@@ -1,0 +1,55 @@
+<image class="banner" src="/image/evaluationpage_bg@3x.png"></image>
+<view class='wrap-content'>
+  <view class='txt'>您好,感谢您光顾眷茶</view>
+  <view class='txt'>请给本次用餐服务评分！</view>
+  <view wx:if="{{btnStatus}}">
+    <!-- 星星 -->
+    <view class='evaluate'>
+      <view>总体满意度</view>
+      <view class='star-wrap'>
+        <image wx:for="{{imgArr}}" wx:key="unique" class="star" data-index='{{index}}' bindtap='selectStar' src="{{item}}"></image>
+      </view>
+    </view>
+    <!-- 选择评价 -->
+    <view class='select-wrap'>
+      <view wx:for="{{arr}}" wx:key="unique" data-index='{{index}}' bindtap='selectItem' class="item {{item.i_flag==0?'active':''}}">{{item.v_remake}}</view>
+    </view>
+    <!-- 输入框 -->
+    <view class='textarea-wrap'>
+      <textarea bindinput='inputEval' placeholder='我们倾听您的声音，请留下宝贵意见' maxlength='30' value='{{backData.v_remake}}'></textarea>
+      <view class='limit'>{{v_remake.length}}/30</view>
+    </view>
+    <!--  图片 -->
+    <view>
+      <image wx:if="{{imageURL}}" bindtap='addImg' class="addImg" src="{{imageURL}}"></image>
+      <image wx:else bindtap='addImg' class="addImg" src="/image/add_img_big.png"></image>
+    <view class='ts'>上传图片</view>
+    </view>
+  </view>
+  <view wx:else>
+    <!-- 星星 -->
+    <view class='evaluate'>
+      <view>总体满意度</view>
+      <view class='star-wrap'>
+        <image wx:for="{{imgArr}}" wx:key="unique" class="star" data-index='{{index}}'  src="{{item}}"></image>
+      </view>
+    </view>
+    <!-- 选择评价 -->
+    <view class='select-wrap'>
+      <view wx:for="{{arr}}" wx:key="unique" data-index='{{index}}'  class="item {{item.i_flag==0?'active':''}}">{{item.v_remake}}</view>
+    </view>
+    <!-- 输入框 -->
+    <textarea  disabled placeholder='我们倾听您的声音，请留下宝贵意见' maxlength='30' value='{{backData.v_remake}}'></textarea>
+    <!--  图片 -->
+    <view>
+      <image  class="addImg" src="{{imageURL}}"></image>
+      <!-- <view class='ts'>上传图片</view> -->
+    </view>
+  </view>
+  <!-- 提交 -->
+  <view wx:if="{{btnStatus}}">
+    <view wx:if="{{click}}" class='btn' hover-class='hover' bindtap='submit'>确认提交</view>
+    <view wx:else class='btn' hover-class='hover'>确认提交</view>
+  </view>
+  <!-- <view wx:else class='btn' style='background:#666'>确认提交</view> -->
+</view>

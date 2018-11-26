@@ -1,0 +1,88 @@
+.bg {
+  height: 400rpx;
+  width: 94%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.bgimg {
+  width: 100%;
+  height: 100%;
+}
+
+.head-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.head-wrap .head {
+  height: 160rpx;
+  width: 160rpx;
+  border-radius: 50%;
+  margin-bottom: 10rpx;
+  display: block;
+  overflow: hidden;
+}
+
+.my-wrap {
+  position: absolute;
+  top: 370rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 0 30rpx;
+  border-radius: 8rpx;
+  width: 97%;
+}
+
+.my-wrap .item {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.my-wrap .item:last-of-type {
+  border: 0;
+}
+
+.cont {
+  margin-left: 30rpx;
+}
+
+.mark {
+  width: 85%;
+  margin: 470rpx auto 0;
+  color: #666;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+/*nobind  */
+
+.nobind-wrap {
+  text-align: center;
+  position: relative;
+  margin: 60rpx auto 0;
+  padding: 80rpx 0;
+  background: #fff;
+  box-shadow: 0 0 8px #aaa;
+  border-radius: 3px;
+}
+
+.nobind-wrap .txt {
+  line-height: 2;
+  font-weight: bold;
+}
+
+.danger {
+  height: 120rpx;
+  width: 120rpx;
+  position: absolute;
+  top: -60rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}

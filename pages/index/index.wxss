@@ -1,0 +1,63 @@
+page {
+  /* background: #dbdddd; */
+  background: #fff;
+  width: 94%;
+}
+
+.banner {
+  width: 100%;
+  height: 560rpx;
+  margin-top: 60rpx;
+}
+
+.banner2 {
+  width: 80%;
+  height: 300rpx;
+  margin-top:60rpx;
+}
+
+.index {
+  text-align: center;
+}
+
+/* 2期 */
+
+.swiper {
+  background: #fff;
+  height: 500rpx;
+  margin-top: 30rpx;
+}
+.fw{
+  font-weight: bold;
+}
+.slide-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+
+.code-wrap {
+  margin-top:80rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.code-wrap .code {
+  width: 100%;
+  height: 140rpx;
+}
+
+.code-wrap .tip {
+  font-size: 28rpx;
+  color: #666;
+  margin: 30rpx 0;
+}
+
+.pay-btn {
+  width: 70%;
+  background: #fff;
+  border-radius: 8rpx;
+  padding: 16rpx 0;
+  margin-bottom: 50rpx;
+}

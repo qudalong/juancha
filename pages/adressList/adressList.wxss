@@ -1,0 +1,181 @@
+
+
+.input-block {
+  border-radius:8rpx;
+  margin: 15rpx auto 0;
+  display: flex;
+  align-items: center;
+  padding: 15rpx 0;
+  background: #f0f0f0;
+}
+
+.tip {
+  padding-top: 14rpx;
+  font-size: 24rpx;
+  padding-left: 30rpx;
+  text-align: center;
+}
+
+.search {
+  width: 36rpx;
+  height: 36rpx;
+  margin: 0 16rpx;
+}
+
+.position {
+  background: #fff;
+  margin: 20rpx 0;
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  border-radius: 8rpx;
+}
+
+.current_icon {
+  width: 46rpx;
+  height: 46rpx;
+  margin: 0 16rpx;
+}
+
+/*地址列表  */
+
+.adress-list {
+  background: #fff;
+  border-radius: 8rpx;
+  margin-top: 15rpx;
+
+}
+
+.adress-list .item {
+  padding: 30rpx 30rpx 30rpx 0;
+  margin-left: 30rpx;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.adress-list .item .details {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.name-dis {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+
+/*定位box  */
+
+.hide {
+  display: none;
+}
+
+.fex {
+  display: flex;
+  align-items: center;
+}
+
+.box {
+  padding:20rpx 17rpx;
+  box-shadow: 4px 4px 15rpx #ccc, -4px -4px 15rpx #ccc;
+}
+
+.box .name {
+  font-weight: bold;
+  width: 520rpx;
+}
+
+.box .details {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 6rpx 0 30rpx 0;
+  padding-left: 55rpx;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pos {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 5rpx;
+  vertical-align: middle;
+}
+
+.ck {
+  width: 55rpx;
+  height: 55rpx;
+  margin-right: 2rpx;
+  vertical-align: middle;
+}
+
+.style {
+  position: relative;
+  margin-bottom: 10rpx;
+  padding:10rpx 0;
+  padding-left: 50rpx;
+  display: flex;
+  align-items: center;
+}
+
+.yv {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24rpx;
+}
+
+.times {
+  margin-left: 55rpx;
+}
+
+.seletbtn {
+  margin-top: 40rpx;
+  width: 96%;
+  border-radius: 8rpx;
+}
+
+.empty {
+  width: 190rpx;
+  height: 190rpx;
+  display: inline-block;
+}
+
+.empty-wrap .explain {
+  margin: 0;
+}
+
+/*自定义时间选择  */
+
+.dialog-wrap {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 70;
+  background: rgba(0, 0, 0, 0.5);
+}
+.fw{
+  font-weight: bold
+}
+.top-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+}
+
+.time-fiexd {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 80;
+}

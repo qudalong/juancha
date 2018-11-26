@@ -1,0 +1,105 @@
+.banner {
+  width: 100%;
+  height: 280rpx;
+}
+page{
+  width: 100%;
+}
+.txt {
+  text-align: center;
+  font-size: 34rpx;
+}
+
+.wrap-content {
+  padding: 30rpx 50rpx;
+}
+
+.star-wrap {
+  margin-left: 50rpx;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.star {
+  width: 60rpx;
+  height: 60rpx;
+  padding: 0;
+}
+
+.evaluate {
+  display: flex;
+  align-items: center;
+  padding: 40rpx 0;
+}
+
+.select-wrap {
+  padding: 40rpx 20rpx 20rpx 0;
+  border-top: 1px solid #e3e3e3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.select-wrap .item {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 27%;
+  height: 90rpx;
+  padding: 2%;
+  border: 1px solid #ccc;
+  border-radius: 10rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+  margin-right: 2.2%;
+  box-sizing: content-box;
+  text-align: center;
+  font-size: 26rpx;
+}
+.active{
+  background: #a5b730 !important;
+  border: 1px solid #a5b730 !important;
+  color: #fff !important;
+}
+
+.select-wrap .item:nth-child(3n) {
+  margin-right: 0;
+}
+
+textarea {
+  padding: 2%;
+  border: 1px solid #ccc;
+  border-radius: 10rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+  margin-right: 2.2%;
+  height: 150rpx;
+}
+
+.btn {
+  width: 100%;
+  margin-top: 50rpx;
+}
+.addImg{
+  height: 140rpx;
+  width: 140rpx;
+  border-radius: 3px;
+}
+.textarea-wrap{
+position: relative;
+}
+.limit{
+position: absolute;
+right: 40rpx;
+bottom: 10rpx;
+color: red;
+}
+.ts{
+  font-size: 24rpx;
+  color: #666;
+  text-align: center;
+   width: 140rpx;
+}

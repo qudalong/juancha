@@ -1,0 +1,41 @@
+<view class='vipvard'>
+  <image class="card" mode='widthFix' src="/image/vip_bg@3x1.png"></image>
+</view>
+<view class='item mb10'>
+  <view class='title'>手机号</view>
+  <view class='con c666'>{{tel}}</view>
+</view>
+<view class='info'>
+  <view class='item'>
+    <view class='title'>姓名</view>
+    <input type='text' class='con' placeholder='请填写姓名' bindinput='inputName' />
+  </view>
+  <view class='item'>
+    <view class='title'>性别</view>
+    <view class='con'>
+      <text class="sex {{currentTab==0?'on':''}}" data-current="0" bindtap="clickItem">女士</text>
+      <text class="sex {{currentTab==1?'on':''}}" data-current="1" bindtap="clickItem">先生</text>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='title'>生日</view>
+    <picker bindchange="bindDateChange" mode="date" value="{{date}}" start="1970-1-1" end="{{today}}" class='con'>
+      <view wx:if="{{birthday}}">{{birthday}}</view>
+      <view class=' c666' wx:else>请选择出生日期</view>
+    </picker>
+    <image class="icon_right"  src="/image/icon_right.png"></image>
+  </view>
+  <view class='item'>
+    <view class='title'>交易密码</view>
+    <input type='number' class='con' maxlength='6' placeholder='请设置6位数字密码' bindinput='password' />
+  </view>
+</view>
+<view class='info mt10' >
+  <view class='item' bindtap='selectShop'>
+    <view class='title'>注册门店</view>
+    <view class='con'>{{nearby}}</view>
+    <image class="icon_right"  src="/image/icon_right.png"></image>
+  </view>
+</view>
+<view class='mark'>注：生日不可修改，请谨慎填写。</view>
+<view class='btn fiexd' bindtap='apply'>申请会员</view>

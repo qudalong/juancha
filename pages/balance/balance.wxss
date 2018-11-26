@@ -1,0 +1,248 @@
+/* pages/order/balance/balance.wxss */
+
+.operate-bar {
+  z-index: 1001;
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  height: 55px;
+  width: 100%;
+  display: flex;
+}
+
+.gouwuche {
+  width: 75%;
+  background: #353535;
+  height: 100%;
+}
+
+.top-wrap {
+  background: #fff;
+  border-radius: 8rpx;
+  overflow: hidden;
+  margin-top: 20rpx;
+}
+
+.adress-a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 30rpx;
+}
+
+.line {
+  margin-left: 30rpx;
+  height: 1px;
+  background: #f0f0f0;
+}
+
+.flex-1 {
+  flex: 1;
+  text-align: right;
+  color: #666;
+  padding-left: 20rpx;
+}
+
+.gouwuche-icon {
+  font-size: 40px;
+  color: #87888e;
+  margin-left: 10px;
+  position: relative;
+}
+
+.number-msg {
+  padding: 1px 7px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  text-align: center;
+  top: 0px;
+  right: -5px;
+}
+
+.gouwuche-price {
+  color: #a9a9a9;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.submit-btn {
+  height: 100%;
+  background: #f7f7f7;
+  width: 25%;
+  display: flex;
+}
+
+.submit-btn-label {
+  color: white;
+  font-size: 15px;
+  margin: auto;
+}
+
+.activity-color {
+  color: #a5b730;
+}
+
+.submit-btn {
+  height: 100%;
+  background: #f7f7f7;
+  width: 25%;
+  display: flex;
+}
+
+.activity-color-bg {
+  background: #a5b730;
+}
+
+.cart-list-box {
+  background: #fff;
+  display: flex;
+  border-bottom: 1px #f0f0f0 solid;
+}
+
+.list-info {
+  width: 50%;
+  padding: 5px 0;
+}
+
+.list-info-size {
+  color: #666;
+  font-size: 26rpx;
+}
+
+.icon-li-circle {
+  margin-left: 15px;
+}
+
+.font20 {
+  font-size: 20px;
+}
+
+.top-bar {
+  height: 50px;
+  line-height: 50px;
+  background: white;
+  border-radius: 8rpx 8rpx 0 0;
+}
+
+.top-left-label {
+  float: left;
+  padding: 0 5px;
+  margin-left: 10px;
+}
+
+.top-right-label {
+  float: right;
+  padding: 0 10px;
+  border-radius: 8rpx;
+}
+
+.order-info {
+  background: white;
+  margin-top: 10px;
+  padding-left: 30rpx;
+  border-radius: 8rpx;
+}
+
+.order-info-title {
+  color: #666;
+  padding: 12px 12px 12px 0;
+  border-bottom: 1px #f0f0f0 solid;
+}
+
+.order-cut {
+  height: 30px;
+  padding: 5px 15px;
+  border-bottom: 1px #f0f0f0 solid;
+}
+
+.order-cut-dec {
+  background: #f07474;
+  color: white;
+  padding: 2px;
+}
+
+.order-cut-note {
+  margin-left: 3px;
+}
+
+.order-cut-number {
+  float: right;
+}
+
+.order-sum {
+  height: 30px;
+  padding: 5px 30rpx 5px 0;
+  line-height: 30px;
+}
+
+.order-sum-number {
+  float: right;
+}
+
+.note {
+  padding: 15px;
+  background: white;
+  margin-top: 10px;
+  border-radius: 8rpx;
+}
+
+.h {
+  height: 70px;
+}
+
+.note-text {
+  width: 95%;
+  background: #f2f2f2;
+  padding: 10px;
+  height: 60px;
+  margin: 5px 0;
+  font-size: 30rpx;
+  position: relative;
+}
+
+.limit {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 24rpx;
+  color: #666;
+}
+
+/*自定义时间选择  */
+
+.dialog-wrap {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 70000;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.cc {
+  height: 30rpx;
+  width: 30rpx;
+  vertical-align: sub;
+}
+
+.top-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+}
+
+.time-fiexd {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 80;
+}

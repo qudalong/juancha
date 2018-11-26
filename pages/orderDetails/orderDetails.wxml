@@ -1,0 +1,95 @@
+<block wx:if="{{ordeItem}}">
+  <!--已取消  -->
+  <view wx:if="{{ordeItem.v_order_state=='已取消'}}" class='status-wrap base mb10'>
+    <image class="icon mr5" src="/image/remind_icon_white@3x.png"></image>
+    <text>已取消</text>
+  </view>
+  <!--已确认  -->
+  <view wx:else class='status-card'>
+    <view class='card base'>取餐号</view>
+    <view class='xxx'>
+      <view class='item'>
+        <text class='code'>{{ordeItem.v_seach_no}}</text>
+        <text>{{ordeItem.v_order_state}}</text>
+      </view>
+      <view wx:if="{{ordeItem.v_order_state=='已确认' && ordeItem.i_down_type==1}}">
+        <text class='c666 f28'>店家已确认订单，请耐心等候</text>
+      </view>
+      <view wx:if="{{ordeItem.v_order_state=='制作中' && ordeItem.i_down_type==1}}">
+        <text class='c666 f28'>饮品制作中，请耐心等候</text>
+      </view>
+      <view wx:if="{{ordeItem.v_order_state=='已完成' && ordeItem.i_down_type==1}}">
+        <text class='c666 mr5 f28'>取餐时间：</text>
+        <text class='f28'>{{ordeItem.v_seach_time}}</text>
+      </view>
+      <view wx:if="{{ordeItem.v_order_state=='已确认' && ordeItem.i_down_type==2}}">
+        <text class='c666 mr5 f28'>预计取餐时间：</text>
+        <text class='f28'>{{ordeItem.v_data_reservation}}</text>
+      </view>
+      <view wx:if="{{ordeItem.v_order_state=='制作中' && ordeItem.i_down_type==2}}">
+        <text class='c666 mr5 f28'>预计取餐时间：</text>
+        <text class='f28'>{{ordeItem.v_data_reservation}}</text>
+      </view>
+      <view wx:if="{{ordeItem.v_order_state=='已完成' && ordeItem.i_down_type==2}}">
+        <text class='c666 mr5 f28'>取餐时间：</text>
+        <text class='f28'>{{ordeItem.v_data_reservation}}</text>
+      </view>
+    </view>
+    <image class="huabian" mode='scaleToFill' src="/image/juancha_huabian@3x.png"></image>
+  </view>
+  <!--商品信息  -->
+  <view class='good-info'>
+    <view class='title'>商品信息</view>
+    <view class='good' wx:for="{{ordeItem.commods}}" wx:for-item="items" wx:key="unique">
+      <image class="cover" background-size="cover" src="{{items.imgUrl}}"></image>
+      <view class='info'>
+        <view class='item f30'>
+          <view class='name'>{{items.v_commod_name}}</view>
+          <view class='c666'>X{{items.i_quantity}}</view>
+        </view>
+        <view class='item style f28'>
+          <view class='c666'>{{items.v_remark}}</view>
+          <view class='price'>￥{{items.i_price}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='total'>
+      <text style="margin-right:10px">共{{ordeItem.i_comm_count}}件商品</text> 实付款：
+      <text wx:if="{{ordeItem.v_order_state=='已取消'}}" class='totalMoney'>￥0.00</text>
+      <text wx:else class='totalMoney'>￥{{ordeItem.i_total_fee/100}}.00</text>
+    </view>
+  </view>
+  <!--备注  -->
+  <view class='mark-wrap' wx:if="{{ordeItem.v_remark}}">
+    <view class='name'>备注</view>
+    <view class='info'>{{ordeItem.v_remark}}</view>
+  </view>
+  <!--订单信息  -->
+  <view class='order-info'>
+    <view class='title'>订单信息
+      <block wx:if='{{ordeItem.i_down_type==2}}'>
+        <text wx:if="{{ordeItem.weichat_ret_status==null&&ordeItem.v_order_state=='已确认'}}" class='cancle base' data-id="{{ordeItem.v_order_no}}" bindtap='cancleOrder'>取消订单</text>
+        <text wx:if="{{ordeItem.weichat_ret_status=='退款失败'}}" class='cancle base' data-id="{{ordeItem.v_order_no}}" data-shopid='{{ordeItem.i_shopidenty}}' bindtap='againReturn'>取消订单</text>
+      </block>
+
+    </view>
+    <view class='item'>
+      <view class='title'>订单号</view>
+      <view class="flex ellipsis">{{ordeItem.v_order_no}}</view>
+    </view>
+    <view class='item'>
+      <view class='title'>下单时间</view>
+      <view class="flex ellipsis">{{ordeItem.v_add_time}}</view>
+    </view>
+    <view class='item'>
+      <view class='title'>门店名称</view>
+      <view class="flex ellipsis">{{ordeItem.v_shopName}}</view>
+    </view>
+    <view class='item'>
+      <view class='title'>门店地址</view>
+      <view class="flex ellipsis">{{ordeItem.commercialAddress}}</view>
+    </view>
+  </view>
+  <!--取餐号提示  -->
+  <view wx:if="{{ordeItem.v_order_state!='已取消'}}" class='mark'>可凭此页面上方的取餐号至门店柜台取餐</view>
+  </block>

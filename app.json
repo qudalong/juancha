@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/selectShop/selectShop",
+    "pages/orderDetails/orderDetails",
+    "pages/vip/vip",
+    "pages/evaluate/evaluate",
+    "pages/coupon/coupon",
+    "pages/bindStyle/bindStyle",
+    "pages/myInfo/myInfo",
+    "pages/balance/balance",
+    "pages/adressList/adressList",
+    "pages/selectFood/selectFood",
+    "pages/discounts/discounts",
+    "pages/my/my",
+    "pages/bindTel/bindTel",
+    "pages/order/order",
+    "pages/notice/notice"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "眷茶",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#a5b730",
+    "borderStyle": "#DBDDDD",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/tab_function_uncheck@3x.png",
+        "selectedIconPath": "image/tab_function_check@3x.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "iconPath": "image/tab_order_uncheck@3x.png",
+        "selectedIconPath": "image/tab_order_check@3x.png",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "image/tab_my_uncheck@3x.png",
+        "selectedIconPath": "image/tab_my_check@3x.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

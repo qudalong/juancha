@@ -1,0 +1,9 @@
+<!--有订单 -->
+<block wx:if="{{cardList.length}}">
+  <view>0</view>
+</block>
+<!--无订单  -->
+<view wx:else class='empty-wrap'>
+  <image class="empty" mode='aspectFit' src="/image/mine_youhui@3x.png"></image>
+  <view class='explain'>暂无优惠券</view>
+</view>

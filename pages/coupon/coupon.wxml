@@ -1,0 +1,153 @@
+<view class='nav'>
+  <view data-current="0" bindtap="swichNav" class="item {{currentTab==0 ? 'active' : ''}}">未使用</view>
+  <view data-current="1" bindtap="swichNav" class="item {{currentTab==1 ? 'active' : ''}}">已使用</view>
+  <view data-current="2" bindtap="swichNav" class="item {{currentTab==2 ? 'active' : ''}}">已过期</view>
+</view>
+<!-- 未使用 -->
+<view wx:if="{{currentTab==0}}" class='tab'>
+  <view wx:if="{{list1.length}}" wx:for="{{list1}}" wx:key="unique" class='row'>
+    <view class='item'>
+      <view class='money'>
+        <view class='m'>{{item.detail.dishName}}
+          <!-- <text class='y'>元</text> -->
+        </view>
+        <view wx:if="{{item.fullValue&&item.fullValue!='null'}}" class='s'>满￥{{item.fullValue}}可用</view>
+        <view wx:else class='s'>满0可用</view>
+      </view>
+      <view class='right'>
+        <view class='top'>
+          <text wx:if="{{item.couponType==1}}" class='d'>满减券</text>
+          <text wx:elif="{{item.couponType==2}}" class='d'>折扣券</text>
+          <text wx:elif="{{item.couponType==3}}" class='d'>礼品券</text>
+          <text wx:elif="{{item.couponType==4}}" class='d'>现金券</text>
+          <text class='s'>{{item.detail.couponName}}</text>
+          <text class='x'>X1</text>
+        </view>
+        <view class='time'>
+          <view>使用时段：{{item.periodStart}}~{{item.periodEnd}}</view>
+          <view>{{item.validateStartDay}}~{{item.validateEndDay}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 使用规则 -->
+    <view class='role'>
+      <view class='sm' bindtap='toggle' data-index="{{index}}">
+        <text>使用说明</text>
+        <image class='icon-up' src="/image/dropdown_gray_btn.png"></image>
+      </view>
+      <view wx:if="{{item.flag}}">
+        <view class='codeNumber'>No.{{item.detail.code_number}}</view>
+        <view class='codeNumber'>
+          <i></i>{{item.detail.usableCommercialDesc}}</view>
+        <view class='codeNumber'>
+          <i></i>{{item.week}}</view>
+        <view class='codeNumber'>
+          <i></i>
+          <view class='flex'> {{item.detail.instructions}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{!list1.length}}" class='empty-wrap'>
+    <image class="empty" mode='aspectFit' src="/image/mine_youhui@3x.png"></image>
+    <view class='explain'>暂无优惠券</view>
+  </view>
+</view>
+<!-- 已使用 -->
+<view wx:if="{{currentTab==1}}" class='tab'>
+  <view wx:if="{{list2.length}}" wx:for="{{list2}}" wx:key="unique" class='row'>
+    <view class='item'>
+      <view class='money'>
+        <view class='m'>{{item.couponName}}
+          <!-- <text class='y'>元</text> -->
+        </view>
+        <view class='s'>{{item.ruleDesc}}</view>
+      </view>
+      <view class='right'>
+        <view class='top'>
+          <text wx:if="{{item.couponType==1}}" class='d'>满减券</text>
+          <text wx:elif="{{item.couponType==2}}" class='d'>折扣券</text>
+          <text wx:elif="{{item.couponType==3}}" class='d'>礼品券</text>
+          <text wx:elif="{{item.couponType==4}}" class='d'>现金券</text>
+          <text class='s'>熟客券</text>
+          <text class='x'>X1</text>
+        </view>
+        <view class='time'>
+          <view>使用时段：{{item.periodStart}}~{{item.periodEnd}}</view>
+          <view>{{item.validateStartDay}}~{{item.validateEndDay}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 使用规则 -->
+    <view class='role'>
+      <view class='sm' bindtap='toggle' data-index="{{index}}">
+        <text>使用说明</text>
+        <image class='icon-up' src="/image/dropdown_gray_btn.png"></image>
+      </view>
+      <view wx:if="{{item.flag}}">
+        <view class='codeNumber'>No.{{item.codeNumber}}</view>
+        <view class='codeNumber'>
+          <i></i>郑州店内使用</view>
+        <view class='codeNumber'>
+          <i></i>{{item.week}}</view>
+        <view class='codeNumber'>
+          <i></i>
+          <view class='flex'> {{item.usableCommercialDesc}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{!list2.length}}" class='empty-wrap'>
+    <image class="empty" mode='aspectFit' src="/image/mine_youhui@3x.png"></image>
+    <view class='explain'>暂无优惠券</view>
+  </view>
+</view>
+<!-- 已过期 -->
+<view wx:if="{{currentTab==2}}" class='tab'>
+  <view wx:if="{{list3.length}}" wx:for="{{list3}}" wx:key="unique" class='row'>
+    <view class='item'>
+      <view class='money ccc'>
+        <view class='m'>{{item.couponName}}
+          <!-- <text class='y'>元</text> -->
+        </view>
+        <view class='s'>{{item.ruleDesc}}</view>
+      </view>
+      <view class='right'>
+        <view class='top'>
+          <text wx:if="{{item.couponType==1}}" class='d ccc'>满减券</text>
+          <text wx:elif="{{item.couponType==2}}" class='d ccc'>折扣券</text>
+          <text wx:elif="{{item.couponType==3}}" class='d ccc'>礼品券</text>
+          <text wx:elif="{{item.couponType==4}}" class='d ccc'>现金券</text>
+          <text class='s'>熟客券</text>
+          <text class='x'>X1</text>
+        </view>
+        <view class='time'>
+          <view>使用时段：{{item.periodStart}}~{{item.periodEnd}}</view>
+          <view>{{item.validateStartDay}}~{{item.validateEndDay}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 使用规则 -->
+    <view class='role'>
+      <view class='sm' bindtap='toggle' data-index="{{index}}">
+        <text>使用说明</text>
+        <image class='icon-up' src="/image/dropdown_gray_btn.png"></image>
+      </view>
+      <view wx:if="{{item.flag}}">
+        <view class='codeNumber'>No.{{item.codeNumber}}</view>
+        <view class='codeNumber'>
+          <i></i>郑州店内使用</view>
+        <view class='codeNumber'>
+          <i></i>{{item.week}}</view>
+        <view class='codeNumber'>
+          <i></i>
+          <view class='flex'> {{item.usableCommercialDesc}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{!list3.length}}" class='empty-wrap'>
+    <image class="empty" mode='aspectFit' src="/image/mine_youhui@3x.png"></image>
+    <view class='explain'>暂无优惠券</view>
+  </view>
+</view>

@@ -1,0 +1,40 @@
+<!--有订单 -->
+<block wx:if="{{orderList.length}}">
+  <view class='good-info' wx:for="{{orderList}}" wx:key="unique">
+    <view class='title'>
+      <view class='shopName'>{{item.v_shopName}}</view>
+      <view class='status c'>{{item.v_order_state}}</view>
+    </view>
+    <view class='good' wx:for="{{item.commods}}" wx:for-item="items" wx:key="unique">
+      <image class="cover" background-size="cover" src="{{items.imgUrl}}"></image>
+      <view class='info'>
+        <view class='item f30'>
+          <view class='name'>{{items.v_commod_name}}</view>
+          <view class='c666'>X{{items.i_quantity}}</view>
+        </view>
+        <view class='item style f28'>
+          <view class='c666 '>{{items.v_remark}}</view>
+          <view class='price'>￥{{items.i_price}}.00</view>
+        </view>
+      </view>
+    </view>
+    <view class='total'>
+      共{{item.i_comm_count}}件商品 实付款：
+          <text  wx:if="{{item.v_order_state=='已取消'}}" class='totalMoney'>￥0.00</text>
+    <text  wx:else class='totalMoney'>￥{{item.i_total_fee/100}}.00</text>
+    </view>
+    <view class='operation cleafix'>
+      <text class='details base' style='float:right' data-id="{{item.v_order_no}}" bindtap='orderDetails'>查看详情</text>
+      <view wx:if="{{item.i_down_type==2 }}" class='canclea'>
+        <text wx:if="{{item.weichat_ret_status==null&&item.v_order_state=='已确认'}}" class='cancle  base' data-id="{{item.v_order_no}}" data-index="{{index}}" bindtap='cancleOrder'>取消订单</text>
+        <text wx:if="{{item.weichat_ret_status=='退款失败'}}" class='cancle  base' data-id="{{item.v_order_no}}" data-index="{{index}}" data-shopid='{{item.i_shopidenty}}' bindtap='againReturn'>取消订单</text>
+      </view>
+    </view>
+  </view>
+</block>
+<!--无订单  -->
+<view wx:else class='empty-wrap'>
+  <image class="empty" background-size="cover" src="/image/mine_dingdan@3x.png"></image>
+  <view class='explain'>目前没有订单记录</view>
+  <view class='btn btn-small' bindtap='seleteShop'>开始点餐</view>
+</view>

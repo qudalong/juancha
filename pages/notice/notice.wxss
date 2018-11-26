@@ -1,0 +1,11 @@
+page{
+  background: #fff;
+}
+.wrap{
+  padding: 30rpx;
+  line-height: 2;
+  text-align: justify;
+}
+.tc{
+  text-align: center;
+}

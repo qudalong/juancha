@@ -1,0 +1,38 @@
+<view class='bg'>
+  <view class='head-wrap'>
+  <open-data class='head' type="userAvatarUrl"></open-data>
+  <open-data class='title' type="userNickName" lang="zh_CN"></open-data>
+  </view>
+  <!--已绑定  -->
+  <view wx:if="{{bindStatus}}" class='my-wrap'>
+    <view class='item'>
+      <image class="icon" background-size="cover" src="/image/my_integral_icon@3x.png"></image>
+      <view wx:if="{{message.integral}}" class='cont'>{{message.integral}}积分</view>
+      <view wx:else class='cont'>0积分</view>
+    </view>
+    <!-- <view class='item' bindtap='discounts'>
+      <image class="icon" background-size="cover" src="/image/my_vouchers_icon@3x.png"></image>
+      <view class='cont'>{{message.coups}}张优惠券</view>
+    </view> -->
+    <view class='item' bindtap='myInfo'>
+      <image class="icon" background-size="cover" src="/image/my_information_icon@3x.png"></image>
+      <view class='cont'>个人信息</view>
+    </view>
+    <view class='item' bindtap='notice'>
+      <image class="icon" background-size="cover" src="/image/my_feedback_icon@3x.png"></image>
+      <view class='cont'>平台须知</view>
+    </view>
+    <!-- <view class='item' bindtap='exitOut'>
+      <image class="icon" background-size="cover" src="/image/my_feedback_icon@3x.png"></image>
+      <view class='cont'>退出账号</view>
+    </view> -->
+  </view>
+</view>
+           <!-- <button open-type="getUserInfo">获取头像</button>            -->
+<!--未绑定  -->
+<view wx:if="{{!bindStatus}}" class='nobind-wrap'>
+  <image class="danger" background-size="cover" src="/image/remind_icon_red@3x.png"></image>
+  <view class='txt'>绑定手机号即可登录或注册</view>
+  <view class='txt'>眷茶会员,享受眷茶会员权益</view>
+  <view class='btn mt20' hover-class='hover' bindtap='bindTel' style="width:90%">绑定手机号</view>
+</view>

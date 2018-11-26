@@ -1,0 +1,30 @@
+<view class='wrap'>
+  <view class="tc" style='margin-bottom:10px;font-size:18px;'>“眷茶”手机自助点单平台使用须知</view>
+  <view>使用“眷茶”手机自助点单平台，您只需在手机上简单操作即可实现免排队点单或预约点单。</view>
+  <view style='font-size:14px;color:#666;margin:10px 0'>您在使用此平台前应仔细阅读如下须知：</view>
+  <view>点单及取餐</view>
+  <view style='font-size:14px;color:#666;padding-left:10px'>
+    <view>•您需要通过微信平台付款点单；</view>
+    <view>•点单时，您可选择立即取餐或预约取餐；</view>
+    <view>•立即取餐：点单时您无需现场排队；</view>
+    <view>•预约取餐：您可指定取餐时间，届时到店即可领取饮品；</view>
+    <view>•取餐号可在微信→小程序→“眷茶手机点单”→我的订单→订单详情中查看；</view>
+    <view>•您须于门店营业时间内完成取单。</view>
+  </view>
+  <view>常见问题</view>
+  <view>Q1：平台适用场景是什么？</view>
+  <view style='font-size:14px;color:#666;padding-left:10px'>
+    <view>场景一：自助点单，您可以免除现场排队困扰。</view>
+    <view>场景二：预约点单，您可以在您方便的时间到店</view>
+  </view>
+  <view>Q2：如何进入平台？</view>
+  <view style='font-size:14px;color:#666;padding-left:10px'>
+    <view>方式一：扫门店手机点餐平台二维码。</view>
+    <view>方式二：进入微信→发现→小程序，搜索“眷茶手机点单”。</view>
+  </view>
+  <view>Q3：取餐号如何查询？</view>
+  <view style='font-size:14px;color:#666;padding-left:10px'>
+    A：进入微信→小程序→“眷茶手机点单”→我的订单→订单详情中查看。</view>
+  <view>Q4：可以委托他人代领饮品吗？</view>
+  <view style='font-size:14px;color:#666;padding-left:10px'>A：可以。受托人可凭取餐号至相应门店领取，您需妥善保管您的取餐号，以免被他人冒领。</view>
+</view>

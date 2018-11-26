@@ -1,0 +1,6 @@
+<image class="banner" src="/image/bindingpagepage_bg@3x.png"></image>
+<button class='btn quike' hover-class='hover' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信手机号快捷绑定</button>
+<view class='tel-bind'>
+  <view>输入手机号绑定</view>
+  <image bindtap='bindTel' class="banner" src="/image/binding_btn@3x.png"></image>
+</view>

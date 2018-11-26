@@ -1,0 +1,64 @@
+.vipvard {
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  border-radius: 8rpx 8rpx 0 0;
+}
+
+.vipvard .card {
+  height: 400rpx;
+  width: 660rpx;
+  margin: 0 auto;
+  padding: 40rpx 0;
+  display: block;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 30rpx;
+  border-bottom: 1px solid #f0f0f0;
+  border-radius:0 0 8rpx 8rpx;
+}
+
+.item .title {
+  width: 160rpx;
+}
+.mt10{
+  margin-top: 20rpx;
+}
+.info{
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+.item .con {
+  flex: 1;
+}
+.item .con .sex{
+  padding: 16rpx 30rpx;
+  border-radius: 40rpx;
+  background: #ccc;
+  margin-right: 40rpx;
+  color: #fff;
+}
+.item .con .sex.on{
+  background: #bd9170;
+}
+.mark{
+  padding:15rpx 30rpx;
+  color: #666;
+  font-size: 28rpx;
+  margin-bottom: 120rpx;
+}
+.fiexd{
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  border-radius: 0;
+  padding: 30rpx 0;
+}
+.icon_right{
+  height: 30rpx;
+  width: 30rpx;
+}

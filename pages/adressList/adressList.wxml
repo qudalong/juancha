@@ -1,0 +1,126 @@
+<!--选择具体位置  -->
+<view class='adress-wrap'>
+  <view class='input-block' bindtap="chooseLocation" hover-class='hover'>
+    <image class="search" background-size="cover" src="/image/nav_search_btn@3x.png"></image>
+    <view class='flex ellipsis'>{{location.address}}</view>
+  </view>
+</view>
+<!--定位当前位置  -->
+<!-- <view class='position c' bindtap='getLocation' hover-class='hover'>
+  <image class="current_icon" background-size="cover" src="/image/current_icon@3x.png"></image>
+  <view class='txt'>点击定位当前位置</view>
+</view> -->
+<!-- 门店列表  -->
+<view wx:if="{{shopList.length}}" class='adress-list'>
+  <block wx:for="{{shopList}}" wx:key="unique">
+    <view class="item {{items==index ? 'hide':''}} c" bindtap='selected' data-items="{{index}}">
+      <view class='name-dis'>
+        <view class='name ellipsis flex'>{{item.commercialName}}</view>
+        <view wx:if="{{item.v_juli}}" class='distance'>{{item.v_juli}}千米</view>
+      </view>
+      <view class='details ellipsis flex'>{{item.commercialAddress}}</view>
+    </view>
+
+    <!--门店详情  -->
+    <view class="box  {{items!=index ? 'hide':''}} ">
+      <view class='row c'>
+        <view class='fex'>
+          <image class="pos" background-size="cover" src="/image/positioning_icon@3x.png"></image>
+          <view class='name ellipsis flex'>{{item.commercialName}}</view>
+          <view wx:if="{{item.v_juli}}" class='distance'>{{item.v_juli}}千米</view>
+        </view>
+      </view>
+      <view class='details c'>{{item.commercialAddress}}</view>
+      <view class='times mb10'>取餐时间：</view>
+      <!--营业状态  -->
+      <view wx:if="{{x}}">
+        <view class='style' bindtap='selectTime' data-current="0" data-open="{{open}}">
+          <image wx:if="{{current==0}}" class="ck" background-size="cover" src="/image/selected_btn@3x.png"></image>
+          <image wx:if="{{current==1}}" class="ck" background-size="cover" src="/image/unselected_btn@3x.png"></image>
+          <image wx:if="{{current==2}}" class="ck" background-size="cover" src="/image/unselected_btn@3x.png"></image>现在，支付成功后在
+          <text class='c'>店内</text> 取餐</view>
+        <view wx:if="{{current==3}}" class='style' style='color:#ccc'>
+          <image class="ck" background-size="cover" src="/image/unselected_btn2@3x.png"></image>对不起，当前时间不在营业时间内</view>
+
+        <view class='style' bindtap='selectTime' data-current="1">
+          <image wx:if="{{current==1}}" class="ck" background-size="cover" src="/image/selected_btn@3x.png"></image>
+          <image wx:if="{{current==0}}" class="ck" background-size="cover" src="/image/unselected_btn@3x.png"></image>
+          <image wx:if="{{current==2}}" class="ck" background-size="cover" src="/image/unselected_btn@3x.png"></image>
+          稍晚，预约稍晚时间
+          <text class='c'>到店</text> 取餐
+          <view wx:if="{{result&&current==1}}" class='yv c'> 预约:
+            <text>{{result}}</text>
+          </view>
+          <view wx:if="{{!result&&current==1}}" class='yv c'> 选择预约时间</view>
+        </view>
+        <view wx:if="{{current==3}}" class='style' bindtap='noYv' data-current="1">
+          <image wx:if="{{current==3}}" class="ck" background-size="cover" src="/image/unselected_btn@3x.png"></image>
+          稍晚，预约稍晚时间
+        </view>
+        <view wx:if="{{openStatus||current==0}}" data-shop="{{item.commercialName}}" class='btn seletbtn fw' data-id="{{item.commercialID}}" hover-class='hover' data-index="{{index}}" data-type="{{current==0? 1:2}}" data-adress="{{item.commercialAddress}}" bindtap='seletedFood'>选择饮品</view>
+        <view wx:else class='btn seletbtn fw' style='background:#ccc'>选择饮品</view>
+      </view>
+      <!--关门状态  -->
+      <view wx:else>
+        <view wx:if="{{jishi}}" class='style' bindtap='selectTime' data-current="0" data-open="{{open}}">
+          <image class="ck" background-size="cover" src="/image/selected_btn@3x.png"></image>现在，支付成功后在
+          <text class='c'>店内</text> 取餐</view>
+        <view wx:else class='style'>
+          <image class="ck" background-size="cover" src="/image/unselected_btn2@3x.png"></image>
+          <text>对不起，当前时间不在营业时间内</text>
+        </view>
+        <view wx:if='{{yv}}'>
+          <view class='style' bindtap='selectTime' data-current="1">
+            <image wx:if="{{current==1}}" class="ck" background-size="cover" src="/image/selected_btn@3x.png"></image>
+            <image wx:if="{{current==0}}" class="ck" background-size="cover" src="/image/unselected_btn@3x.png"></image>
+            <image wx:if="{{current==2}}" class="ck" background-size="cover" src="/image/unselected_btn@3x.png"></image>
+            稍晚，预约稍晚时间
+            <text class='c'>到店</text> 取餐
+            <view wx:if="{{result&&current==1}}" class='yv c'> 预约:
+              <text>{{result}}</text>
+            </view>
+            <view wx:if="{{!result&&current==1}}" class='yv c'> 选择预约时间</view>
+          </view>
+          <!--按钮  -->
+          <view wx:if="{{openStatus||current==0}}" data-shop="{{item.commercialName}}" class='btn seletbtn fw' data-id="{{item.commercialID}}" hover-class='hover' data-index="{{index}}" data-type="{{current==0? 1:2}}" data-adress="{{item.commercialAddress}}" bindtap='seletedFood'>选择饮品</view>
+          <view wx:else class='btn seletbtn fw' style='background:#ccc'>选择饮品</view>
+        </view>
+        <view wx:else>
+          <view class='style' bindtap='noyv'>
+            <image class="ck" background-size="cover" src="/image/unselected_btn@3x.png"></image>
+            稍晚，预约稍晚时间
+            <text class='c'>到店</text> 取餐
+          </view>
+          <view wx:if="{{jishi}}" data-shop="{{item.commercialName}}" class='btn seletbtn  fw' data-id="{{item.commercialID}}" hover-class='hover' data-index="{{index}}" data-type="{{current==0? 1:2}}" data-adress="{{item.commercialAddress}}" bindtap='seletedFood'>选择饮品</view>
+          <view wx:else class='btn seletbtn fw' style='background:#ccc'>选择饮品</view>
+        </view>
+      </view>
+      <!--小提示  -->
+      <view class="tip">
+        <view wx:if="{{current==1}}">
+          提示：请在预约取餐时间内
+          <text class='c'>到店</text> 取餐
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+<view wx:else class='empty-wrap'>
+  <image class="empty" mode='aspectFit' src="/image/mine_mendian@3x.png"></image>
+  <view class='explain'>当前位置没有门店</view>
+</view>
+<!--自定义时间选择器  -->
+<view wx:if="{{current==1}}" class="dialog-wrap {{current==1&&hide==1 ? '':'hide'}} ">
+  <view class='time-fiexd'>
+    <view class='top-title'>
+      <view bindtap='cancle' style='padding:10px'>取消</view>
+      <view class='c'>请选择预约取餐时间</view>
+      <view class='c' bindtap='sure' style='padding:10px'>确定</view>
+    </view>
+    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 240px;" value="{{value}}" bindchange="bindChange">
+      <picker-view-column>
+        <view wx:for="{{hours}}" wx:key="unicode" style="line-height: 50px;text-align:center">{{item}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>

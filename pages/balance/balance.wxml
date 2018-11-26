@@ -1,0 +1,83 @@
+<!--pages/order/balance/balance.wxml-->
+<view>
+<view class='top-wrap'>
+  <view class='top-bar'>
+      <label class='top-left-label'>取餐时间</label>
+      <label wx:if="{{type==1}}" class='top-right-label activity-color'>饮品制作中，尽快为你服务</label>
+      <label wx:if="{{type==2&&change}}" class='top-right-label activity-color' bindtap='showZ'>{{result}}
+        <image class="cc" src="/image/dropdown_gray_btn.png"></image>
+      </label>
+      <label wx:if="{{type==2&&!change}}" class='top-right-label activity-color' bindtap='showZ'>{{hour}}
+        <image class="cc" src="/image/dropdown_gray_btn.png"></image>
+      </label>
+  </view>
+  <view class='line'></view>
+    <view class='adress-a'>
+      <label>取单地址</label>
+      <view class='flex-1' style='color:red'>{{adress}}</view>
+    </view>
+    </view>
+  <!-- 订单详情 -->
+  <view class='order-info'>
+    <view class='order-info-title'>订单详情</view>
+    <view class='cart-list-box' wx:for="{{cartList}}" wx:key="unique" style='padding:10px 0'>
+      <view class='list-info' style='flex:1'>
+        <view>{{item.name}}</view>
+        <view class='list-info-size' style='margin-top:5px'>{{item.remark}}</view>
+      </view>
+      <view style='min-width:70px;padding:0 10px;'>
+        <view style='float:right'>
+          <view style='color:#666'>x {{item.quantity}}</view>
+          <view style='margin-top:5px'>¥ {{item.price/100}}.00</view>
+        </view>
+      </view>
+    </view>
+    <view class='order-sum'>
+      <label class='order-sum-number activity-color'>总计：¥ {{sumMonney/100}}.00</label>
+    </view>
+  </view>
+  <!-- 备注 -->
+  <view class='note' wx:if="{{teaxt}}">
+    <label style='color:#666'>备注</label>
+    <textarea placeholder='饮品规格可参阅订单详情中的显示，若有其它要求，请说明' class='note-text' placeholder-style="font-size:12px"  maxlength='20' bindinput='remark' value='{{remark}}'>
+      <view class='limit'>{{len|0}}/20个字</view>
+    </textarea>
+    <label wx:if="{{type==2}}" style='color:#666;margin-top:10rpx;font-size:12px;'>预约取餐时间前20分钟店员开始接单，接单后不可取消订单退款！</label>
+  </view>
+  <view class='h'></view>
+  <!-- 底部操作栏 -->
+  <view class="operate-bar">
+    <view class='gouwuche'>
+      <view style='padding:5px;display:flex'>
+        <i class="iconfont icon-gouwuchefill gouwuche-icon activity-color">
+          <span class="number-msg" wx:if="{{cartList.length!=0}}">{{cupNumber}}</span>
+        </i>
+        <view class='gouwuche-price' style='color:white;'>¥ {{sumMonney/100}}.00</view>
+      </view>
+    </view>
+    <view wx:if="{{!clickOk}}" class="submit-btn activity-color-bg" bindtap='gopay'>
+      <view class="submit-btn-label color-white">去支付</view>
+    </view>
+    <view wx:else class="submit-btn activity-color-bg">
+      <view class="submit-btn-label color-white">去支付</view>
+    </view>
+  </view>
+
+</view>
+
+<!--自定义时间选择器  -->
+<view class="dialog-wrap" wx:if="{{show}}">
+  <view class='time-fiexd'>
+    <view class='top-title'>
+      <view bindtap='cancle' style='padding:10px'>取消</view>
+      <view class='c'>请选择预约取餐时间</view>
+      <view wx:if="{{chenged}}" class='c' bindtap='sure' style='padding:10px'>确定</view>
+      <view wx:else class='c' bindtap='sure2' style='padding:10px'>确定</view>
+    </view>
+    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 240px;" value="{{value}}" bindchange="bindChange">
+      <picker-view-column>
+        <view wx:for="{{hours}}" wx:key="unicode" style="line-height: 50px;text-align:center">{{item}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>

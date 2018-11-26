@@ -1,0 +1,42 @@
+.info-wrap {
+  border-radius: 8rpx;
+  background: #fff;
+}
+page{
+  width: 94%;
+}
+.info-wrap:nth-child(2) {
+  margin-top: 20rpx;
+}
+
+.info-wrap .item {
+  display: flex;
+  align-items: center;
+  padding:38rpx 0;
+  border-bottom: 1px solid #f0f0f0;
+  margin:0 30rpx;
+}
+
+.info-wrap .item label {
+  width: 150rpx;
+}
+
+.info-wrap .item view {
+  flex: 1;
+  color: #666;
+}
+
+.mark {
+  width: 85%;
+  margin: 40rpx auto;
+  color: #666;
+  text-align: center;
+  font-size: 28rpx;
+}
+
+.code {
+  width: 300rpx;
+  height: 300rpx;
+  margin: 0 auto;
+  display: block;
+}

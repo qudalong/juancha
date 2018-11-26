@@ -1,0 +1,43 @@
+<!--选择具体位置  -->
+<view class='adress-wrap'>
+  <view class='input-block' bindtap="chooseLocation" hover-class='hover'>
+    <image class="search" background-size="cover" src="/image/nav_search_btn@3x.png"></image>
+    <view class='flex ellipsis'>{{location.address}}</view>
+  </view>
+</view>
+<!--定位当前位置  -->
+<!-- <view class='position c' bindtap='getLocation' hover-class='hover'>
+  <image class="current_icon" background-size="cover" src="/image/current_icon@3x.png"></image>
+  <view class='txt'>点击定位当前位置</view>
+</view> -->
+<!-- 门店列表  -->
+<view wx:if="{{shopList.length}}" class='adress-list'>
+  <block wx:for="{{shopList}}" wx:key="unique">
+    <view class="item {{items==index ? 'hide':''}} c" bindtap='selected' data-items="{{index}}">
+      <view class='name-dis'>
+        <view class='name ellipsis flex'>{{item.commercialName}}</view>
+        <view wx:if="{{item.v_juli}}" class='distance'>{{item.v_juli}}千米</view>
+      </view>
+      <view class='details ellipsis flex'>{{item.commercialAddress}}</view>
+    </view>
+
+    <!--门店详情  -->
+    <view class="box  {{items!=index ? 'hide':''}} ">
+      <view class='row c'>
+        <view class='fex'>
+          <image class="pos" background-size="cover" src="/image/positioning_icon@3x.png"></image>
+          <view class='name ellipsis flex'>{{item.commercialName}}</view>
+          <view wx:if="{{item.v_juli}}" class='distance'>{{item.v_juli}}千米</view>
+        </view>
+      </view>
+      <view class='details c'>{{item.commercialAddress}}</view>
+      <!--营业状态  -->
+    <view class='btn seletbtn' data-id="{{item.commercialID}}" data-shopname="{{item.commercialName}}" bindtap='selectOk'>确定</view>
+
+    </view>
+  </block>
+</view>
+<view wx:else class='empty-wrap'>
+  <image class="empty" mode='aspectFit' src="/image/mine_mendian@3x.png"></image>
+  <view class='explain'>当前位置没有门店</view>
+</view>
