@@ -72,7 +72,7 @@ Page({
             longitude: res.longitude
           },
           success: function(res) {
-            console.log(res)
+            //console.log(res)
             var location = res.result.address;
             var ad_info = res.result.ad_info;
             that.setData({
@@ -106,13 +106,13 @@ Page({
           success: function(res) {
             wx.hideLoading();
             if (res.data.success) {
-              console.log(res.data)
+              //console.log(res.data)
               that.setData({
                 shopList: res.data.data.list,
                 nearby: res.data.data.list[0].commercialName //附近的店
               });
             } else {
-              console.log("请求门店列表失败")
+              //console.log("请求门店列表失败")
             }
           }
         });

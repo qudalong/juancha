@@ -33,7 +33,7 @@ Page({
         token: wx.getStorageSync('token')
       },
       success: function(res) {
-        console.log(res)
+        //console.log(res)
         wx.hideLoading();
         if (res.data.success) {
           var dataList = res.data.dataList;
@@ -43,15 +43,15 @@ Page({
               dataList[i].flag = false;
               // 格式化星期
               var week = dataList[i].week.split("");
-              console.log(week)
+              //console.log(week)
               if (week[0] == 0) {
                 dataList[i].week = "周日不可用"
               } else if (week[1] == 0) {
                 dataList[i].week = "周一不可用"
-                console.log(1)
+                //console.log(1)
               } else if (week[2] == 0) {
                 dataList[i].week = "周二不可用"
-                console.log(2)
+                //console.log(2)
               } else if (week[3] == 0) {
                 dataList[i].week = "周三不可用"
               } else if (week[4] == 0) {
@@ -80,7 +80,7 @@ Page({
               list3: a.list3
             });
           }
-          console.log(a.list1)
+          //console.log(a.list1)
         }
       }
     });
@@ -103,7 +103,7 @@ Page({
     var that = this;
     var a = that.data;
     var index = e.currentTarget.dataset.index;
-    console.log(index)
+    //console.log(index)
     for (var i in a.list1) {
       a.list1[index].flag = !a.list1[index].flag;
     }

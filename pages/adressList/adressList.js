@@ -3,13 +3,13 @@ function time(that) {
   var date = new Date();
   var hour = date.getHours();
   var minute = date.getMinutes();
-  console.log(hour + ";" + minute);
+  //console.log(hour + ";" + minute);
   var totalNow = parseInt(hour * 60) + parseInt(minute); //装换选择时间
   var arr = ['09:45', '09:50', '09:55', '10:00', '10:05', '10:10', '10:15', '10:20', '10:25', '10:30', '10:35', '10:40', '10:45', '10:50', '10:55', '11:00', '11:05', '11:10', '11:15', '11:20', '11:25', '11:30', '11:35', '11:40', '11:45', '11:50', '11:55', '12:00', '12:05', '12:10', '12:15', '12:20', '12:25', '12:30', '12:35', '12:40', '12:45', '12:50', '12:55', '13:00', '13:05', '13:10', '13:15', '13:20', '13:25', '13:30', '13:35', '13:40', '13:45', '13:50', '13:55', '14:00', '14:05', '14:10', '14:15', '14:20', '14:25', '14:30', '14:35', '14:40', '14:45', '14:50', '14:55', '15:00', '15:05', '15:10', '15:15', '15:20', '15:25', '15:30', '15:35', '15:40', '15:45', '15:50', '15:55', '16:00', '16:05', '16:10', '16:15', '16:20', '16:25', '16:30', '16:35', '16:40', '16:45', '16:50', '16:55', '17:00', '17:05', '17:10', '17:15', '17:20', '17:25', '17:30', '17:35', '17:40', '17:45', '17:50', '17:55', '18:00', '18:05', '18:10', '18:15', '18:20', '18:25', '18:30', '18:35', '18:40', '18:45', '18:50', '18:55', '19:00', '19:05', '19:10', '19:15', '19:20', '19:25', '19:30', '19:35', '19:40', '19:45', '19:50', '19:55', '20:00', '20:00', '20:05', '20:10', '20:15', '20:20', '20:25', '20:30', '20:35', '20:40', '20:45', '20:50', '20:55', '21:00', '21:05', '21:10', '21:15', '21:20'];
   for (var i in arr) {
     var totalM = parseInt(arr[i].split(":")[0] * 60) + parseInt(arr[i].split(":")[1])
     if (totalNow < totalM) {
-      console.log(arr[i] + " , " + i);
+      //console.log(arr[i] + " , " + i);
       break;
     }
   }
@@ -108,8 +108,8 @@ Page({
     wx.getLocation({
       type: 'gcj02',
       success: function(res) {
-        // console.log('getLocation..........')
-        // console.log(res)
+        // //console.log('getLocation..........')
+        // //console.log(res)
         var latitude = res.latitude
         var longitude = res.longitude
         that.setData({
@@ -124,12 +124,12 @@ Page({
             longitude: res.longitude
           },
           success: function(res) {
-            console.log(res)
-            console.log(111111111111111)
+            //console.log(res)
+            //console.log(111111111111111)
             var location = res.result.address;
             var ad_info = res.result.ad_info;
             var city = res.result.address_component.city;
-            console.log('所在城市名称=' + res.result.address_component.city)
+            //console.log('所在城市名称=' + res.result.address_component.city)
             that.setData({
               location: {
                 latitude: ad_info.location.lat, //精度
@@ -153,12 +153,12 @@ Page({
               success: function (res) {
                 wx.hideLoading();
                 if (res.data.success) {
-                  console.log(res.data)
+                  //console.log(res.data)
                   that.setData({
                     shopList: res.data.data.list,
                   });
                 } else {
-                  console.log("请求门店列表失败")
+                  //console.log("请求门店列表失败")
                 }
               }
             });
@@ -182,7 +182,7 @@ Page({
     var val = e.detail.value
     this.setData({
       change: true, //改变时间了
-      result: that.data.hours[val],
+      result: that.data.hours[val]||'',
       result2: that.data.hours[val]
     })
   },
@@ -265,8 +265,8 @@ Page({
     var h = data.getHours();
     // var m = data.getMinutes() + 20;
     var m = data.getMinutes() < 10 ? ('0' + data.getMinutes()): (data.getMinutes());
-    console.log('m===' + data.getMinutes())
-    console.log('m===' + m)
+    //console.log('m===' + data.getMinutes())
+    //console.log('m===' + m)
 
     var that = this;
     var time = e.currentTarget.dataset.time; //预约时间
@@ -282,7 +282,7 @@ Page({
       // var timer = h + ":" + (m-20);
       var timer = h + ":" + m;
     }
-    console.log('result3=' + timer)
+    //console.log('result3=' + timer)
 
     wx.navigateTo({
       // url: '../selectFood/selectFood?id=' + id + '&adress=' + adress + '&shop=' + shop + '&type=' + type + '&time=' + y + '-' + m + '-' + d + ' ' + that.data.result
@@ -302,7 +302,7 @@ Page({
     //     address: wx.getStorageSync('location') //详细地址
     //   }
     // });
-    console.log("获取当前位置")
+    //console.log("获取当前位置")
 
     // 实例化API核心类
     qqmapsdk = new QQMapWX({
@@ -329,8 +329,8 @@ Page({
             longitude: res.longitude
           },
           success: function(res) {
-            console.log('详细地址')
-            console.log(res)
+            //console.log('详细地址')
+            //console.log(res)
             var location = res.result.address;
             var ad_info = res.result.ad_info;
             var city = res.result.address_component.city;
@@ -349,7 +349,7 @@ Page({
           title: '努力加载中',
           mask: true
         });
-        console.log(that.data.location.latitude + "," + that.data.location.longitude);
+        //console.log(that.data.location.latitude + "," + that.data.location.longitude);
         var latLong = that.data.location.latitude + "," + that.data.location.longitude;
         wx.request({
           url: url + 'ShopControl/getAllshop.htm',
@@ -366,7 +366,7 @@ Page({
           success: function(res) {
             wx.hideLoading();
             if (res.data.success) {
-              console.log(res.data)
+              //console.log(res.data)
               that.setData({
                 shopList: res.data.data.list,
               });
@@ -374,7 +374,7 @@ Page({
               that.setData({
                 shopList: [],
               });
-              console.log("请求门店列表失败")
+              //console.log("请求门店列表失败")
             }
           }
         });
@@ -392,8 +392,8 @@ Page({
     var that = this
     wx.chooseLocation({
       success: function(res) {
-        console.log('选择位置是')
-        console.log(res)
+        //console.log('选择位置是')
+        //console.log(res)
         that.setData({
           hasLocation: true,
           location: {
@@ -410,9 +410,9 @@ Page({
             longitude: res.longitude
           },
           success: function (res) {
-            console.log(res)
+            //console.log(res)
              var city2 = res.result.address_component.city;
-            console.log('所在城市名称2=' + res.result.address_component.city)
+            //console.log('所在城市名称2=' + res.result.address_component.city)
 
 
             //获取门店列表
@@ -431,7 +431,7 @@ Page({
               success: function (res) {
                 wx.hideLoading();
                 if (res.data.success) {
-                  console.log(res.data)
+                  //console.log(res.data)
                   that.setData({
                     shopList: res.data.data.list,
                   });
@@ -439,7 +439,7 @@ Page({
                   that.setData({
                     shopList: [],
                   });
-                  console.log("请求门店列表失败")
+                  //console.log("请求门店列表失败")
                 }
               }
             });

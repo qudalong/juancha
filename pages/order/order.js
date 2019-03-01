@@ -23,7 +23,6 @@ Page({
 
   onLoad: function (options) {
     var that = this;
-   
      //全部订单
       that.seachAlldown();
   },
@@ -35,7 +34,6 @@ Page({
        mask: true
     })
     var that=this;
-    console.log('绑定手机号='+wx.getStorageSync('tel'))
     wx.request({
       url: url + 'ShopControl/seachAlldown.htm',
       data: {
@@ -46,14 +44,13 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success: function (res) {
-        console.log(res.data.dataList)
         if (res.data.success) {
           that.setData({
             orderList: res.data.dataList
           })
           wx.hideLoading();
         } else {
-          //console.log("请求我的订单失败")
+          ////console.log("请求我的订单失败")
         }
       }
     });
@@ -87,7 +84,7 @@ Page({
               'content-type': 'application/json' // 默认值
             },
             success: function (res) {
-              //console.log(res.data)
+              ////console.log(res.data)
               wx.hideLoading();
                 that.seachAlldown();
               if (res.data.success) {
@@ -147,7 +144,7 @@ Page({
   //查看详情
   orderDetails: function (e) {
     var orderId = e.currentTarget.dataset.id;
-    //console.log(orderId)
+    ////console.log(orderId)
     wx.navigateTo({
       url: '../orderDetails/orderDetails?orderId=' + orderId
     })

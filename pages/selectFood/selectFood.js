@@ -56,8 +56,8 @@ Page({
     var adress = options.adress
     var type = options.type //取餐类型 现在1  预约2
     var sysinfo = wx.getSystemInfoSync().windowHeight;
-    ////console.log('windowHeight=' + sysinfo)
-    ////console.log('time=' + time)
+    //////console.log('windowHeight=' + sysinfo)
+    //////console.log('time=' + time)
     wx.setNavigationBarTitle({
       title: shop
     });
@@ -69,7 +69,7 @@ Page({
       windowHeight: sysinfo,
       goodHeight: sysinfo - 52,
     })
-    // ////////console.log(sysinfo)
+    // //////////console.log(sysinfo)
     wx.showLoading({
       title: '努力加载中',
       mask: true
@@ -141,8 +141,8 @@ Page({
   },
   selectMenu: function(e) {
     var index = e.currentTarget.dataset.index
-    //console.log(this.data.arr)
-    //console.log('第' + (index + 1) + "个栏目")
+    ////console.log(this.data.arr)
+    ////console.log('第' + (index + 1) + "个栏目")
     this.setData({
       activeIndex: index,
       toView: 'a' + index,
@@ -202,8 +202,8 @@ Page({
 
     var aTem = this.data.listData[type].diss[index].supplyCondiments;
     var size = this.data.listData[type].diss[index].attrs;
-    //console.log("加料.........")
-    //console.log(aTem)
+    ////console.log("加料.........")
+    ////console.log(aTem)
     //小料
     if (aTem && aTem[0].name != '常规') {
       aTem.unshift({
@@ -234,8 +234,8 @@ Page({
       }
     }
 
-    // ////console.log(wd)
-    // ////console.log(td)
+    // //////console.log(wd)
+    // //////console.log(td)
     this.setData({
       wd: wd,
       td: td,
@@ -295,7 +295,7 @@ Page({
 
   //添加购物车
   addToCart: function(e) {
-    ////console.log("click");
+    //////console.log("click");
     var that = this;
     //防止重复点击
     that.setData({
@@ -322,11 +322,11 @@ Page({
     that.setData({
       listData: a.listData
     });
-    // //////console.log(currentFoodName)
+    // ////////console.log(currentFoodName)
 
     //判断有无小料
     var supplyCondiments = a.listData[a.currentType].diss[a.currentIndex].supplyCondiments;
-    // //////console.log(supplyCondiments)
+    // ////////console.log(supplyCondiments)
     if (supplyCondiments) {
       var marketPrice = supplyCondiments[a.temIndex].marketPrice;
     } else {
@@ -338,9 +338,9 @@ Page({
     } else {
       var price = parseInt(a.listData[a.currentType].diss[a.currentIndex].price * 100) + parseInt(marketPrice * 100);
     }
-    ////console.log('a.size')
-    ////console.log(a.size)
-    ////console.log(a.tem)
+    //////console.log('a.size')
+    //////console.log(a.size)
+    //////console.log(a.tem)
     if (a.size.length || a.tem) {
       if (a.tem) {
         //外带判断
@@ -352,9 +352,9 @@ Page({
       } else {
         var remark = a.wd[a.sizeIndex] + "+" + a.td[a.sugarIndex];
       }
-      ////console.log(remark)
+      //////console.log(remark)
       var remark_gg = a.wd[a.sizeIndex] + "+" + a.td[a.sugarIndex];
-      ////console.log(remark_gg)
+      //////console.log(remark_gg)
     } else {
       var remark = a.wd[a.sizeIndex] + "+" + a.td[a.sugarIndex];
       var remark_gg = a.wd[a.sizeIndex] + "+" + a.td[a.sugarIndex];
@@ -561,56 +561,56 @@ Page({
       this.setData({
         activeIndex: 2
       })
-      ////console.log(a.activeIndex);
+      //////console.log(a.activeIndex);
       return;
     }
     if (dis > h2 && dis < h3) {
       this.setData({
         activeIndex: 3
       })
-      // //////console.log(a.activeIndex);
+      // ////////console.log(a.activeIndex);
       return;
     }
     if (dis > h3 && dis < h4) {
       this.setData({
         activeIndex: 4
       })
-      ////////console.log(a.activeIndex);
+      //////////console.log(a.activeIndex);
       return;
     }
     if (dis > h4 && dis < h5) {
       this.setData({
         activeIndex: 5
       })
-      // //////console.log(a.activeIndex);
+      // ////////console.log(a.activeIndex);
       return;
     }
     if (dis > h5 && dis < h6) {
       this.setData({
         activeIndex: 6
       })
-      // //////console.log(a.activeIndex);
+      // ////////console.log(a.activeIndex);
       return;
     }
     if (dis > h6 && dis < h7) {
       this.setData({
         activeIndex: 7
       })
-      ////////console.log(a.activeIndex);
+      //////////console.log(a.activeIndex);
       return;
     }
     if (dis > h7 && dis < h8) {
       this.setData({
         activeIndex: 8
       })
-      ////////console.log(a.activeIndex);
+      //////////console.log(a.activeIndex);
       return;
     }
     if (dis > h8) {
       this.setData({
         activeIndex: 9
       })
-      ////////console.log(a.activeIndex);
+      //////////console.log(a.activeIndex);
       return;
     }
 

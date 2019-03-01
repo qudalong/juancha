@@ -31,7 +31,7 @@ Page({
       },
       success: function(res) {
         if (res.data.success) {
-          console.log(res.data.dataList)
+          //console.log(res.data.dataList)
           that.setData({
             dataList: res.data.dataList
           });
@@ -50,14 +50,14 @@ Page({
         'content-type': 'application/json'
       },
       success: function(res) {
-        console.log('回显.....................')
-        console.log(res)
+        //console.log('回显.....................')
+        //console.log(res)
         if (res.data.data) {
 
           var i_star = res.data.data.i_star;
           var commTrys = res.data.data.commTrys;
           var v_path = url + res.data.data.v_path;
-          console.log(v_path)
+          //console.log(v_path)
           //回显点亮星星
           for (var i = 0; i < i_star; i++) {
             that.data.imgArr[i] = '/image/star_solid@3x.png'
@@ -95,8 +95,8 @@ Page({
             }
           }
           //回显点亮
-          console.log(commTrys)
-          console.log(a.arr)
+          //console.log(commTrys)
+          //console.log(a.arr)
           for (var i in a.arr) {
             for (var j in commTrys) {
               if (a.arr[i].v_remake == commTrys[j].v_mark) {
@@ -163,7 +163,7 @@ Page({
         v_star_mark: v_star_mark
       },
       success: function(res) {
-        console.log('上传图片成功');
+        //console.log('上传图片成功');
         that.setData({
           click: false
         });
@@ -278,7 +278,7 @@ Page({
             success: function(res) {
               var tempFilePaths = res.tempFilePaths;
               var filePath = tempFilePaths[0];
-              console.log('filePath=' + filePath)
+              //console.log('filePath=' + filePath)
               that.setData({
                 imageURL: filePath
               });
@@ -292,7 +292,7 @@ Page({
             success: function(res) {
               var tempFilePaths = res.tempFilePaths;
               var filePath = tempFilePaths[0];
-              console.log('filePath=' + filePath)
+              //console.log('filePath=' + filePath)
               that.setData({
                 imageURL: filePath
               });

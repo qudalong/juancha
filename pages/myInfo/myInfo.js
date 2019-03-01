@@ -34,7 +34,7 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success: function (res) {
-        console.log(res.data)
+        //console.log(res.data)
         if (res.data.success) {
           var message = res.data.data;
           that.setData({

@@ -8,7 +8,7 @@ function timer(that) {
   for (var i in arr) {
     var totalM = parseInt(arr[i].split(":")[0] * 60) + parseInt(arr[i].split(":")[1])
     if (totalNow < totalM) {
-      // //console.log(arr[i] + " , " + i);
+      // ////console.log(arr[i] + " , " + i);
       break;
     }
   }
@@ -102,7 +102,7 @@ Page({
   //确定{没滑动}
   sure2: function() {
     var that = this;
-    console.log("确定没滑动时间=" + that.data.hours[0])
+    //console.log("确定没滑动时间=" + that.data.hours[0])
     timer(that); //自定义预约时间
     that.setData({
       change: true,
@@ -125,7 +125,7 @@ Page({
       // show: true,
       result: that.data.hours[val]
     })
-    //console.log(that.data.result)
+    ////console.log(that.data.result)
   },
 
 
@@ -240,7 +240,7 @@ Page({
             'content-type': 'application/json' // 默认值
           },
           success: function(res) {
-            console.log(res);
+            //console.log(res);
             if (res.data.success) {
               //微信支付接口
               if (res.data) {
@@ -263,7 +263,7 @@ Page({
                       success: function(res) {}
                     });
 
-                    console.log("支付成功啦！");
+                    //console.log("支付成功啦！");
                     wx.showLoading({
                       title: '加载中'
                     });
@@ -277,7 +277,7 @@ Page({
                     that.setData({
                       clickOk: false
                     });
-                    console.log('支付失败');
+                    //console.log('支付失败');
                     wx.hideLoading();
                   }
                 });

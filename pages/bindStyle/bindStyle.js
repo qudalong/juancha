@@ -39,7 +39,7 @@ Page({
       success: function(res) {
         if (res.data.success) {
           var wxTel = res.data.data.phoneNumber;
-          console.log('微信手机号=' + res.data.data.phoneNumber)
+          //console.log('微信手机号=' + res.data.data.phoneNumber)
           //判断是否为会员
           if (wxTel) {
             wx.request({
@@ -54,10 +54,10 @@ Page({
                 'content-type': 'application/json' // 默认值
               },
               success: function(res) {
-                console.log(res.data);
+                //console.log(res.data);
                 if (res.data.sys_info) {
                   wx.setStorageSync('tel', wxTel);
-                  console.log('已经是会员')
+                  //console.log('已经是会员')
                   if (that.data.cardStyle) {
                     wx.navigateBack({
                       delta: 1
@@ -68,7 +68,7 @@ Page({
                     });
                   }
                 } else if (res.data.success) {
-                  console.log('绑定成功')
+                  //console.log('绑定成功')
                   wx.navigateTo({
                     url: '../vip/vip?tel=' + wxTel + '&cardStyle=' + that.data.cardStyle + '&quike=' + 1,
                   })

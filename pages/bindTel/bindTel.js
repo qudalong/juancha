@@ -96,11 +96,11 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success: function (res) {
-        //console.log(res.data);
+        ////console.log(res.data);
         if (res.data.success) {
 
         } else {
-          //console.log('获取验证码失败')
+          ////console.log('获取验证码失败')
         }
       }
     });
@@ -153,10 +153,10 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success: function (res) {
-        console.log(res.data);
+        //console.log(res.data);
         if (res.data.sys_info) {
           wx.setStorageSync('tel', that.data.telVal);
-          console.log('已经是会员')
+          //console.log('已经是会员')
           if (that.data.cardStyle){
             wx.navigateBack({
               delta:1
@@ -167,7 +167,7 @@ Page({
           });
           }
         } else if (res.data.success){
-          console.log('绑定成功')
+          //console.log('绑定成功')
           wx.navigateTo({
             url: '../vip/vip?tel=' + that.data.telVal + '&cardStyle=' + that.data.cardStyle,
           })

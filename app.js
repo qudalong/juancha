@@ -23,8 +23,6 @@ App({
               'content-type': 'application/json'
             },
             success: function (res) {
-              console.log(res.data)
-          
               wx.setStorageSync('openid', res.data.openid);
               wx.setStorageSync('session_key', res.data.session_key);
               //判断有无手机号
@@ -38,7 +36,6 @@ App({
                   'content-type': 'application/json' // 默认值
                 },
                 success: function (res) {
-                  console.log(res)
                   if (res.data.success) {
                     var message = res.data.data;
                     wx.setStorageSync('tel', message.v_phone);
@@ -52,7 +49,7 @@ App({
          
       
         } else {
-          //console.log('获取用户登录态失败！' + res.errMsg)
+          ////console.log('获取用户登录态失败！' + res.errMsg)
         }
       }
     })

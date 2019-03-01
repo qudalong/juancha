@@ -21,8 +21,8 @@ Page({
     })
     var that=this;
     var orderId=options.orderId;
-    //console.log(orderId)
-    //console.log(1)
+    ////console.log(orderId)
+    ////console.log(1)
     that.setData({
       orderId: orderId
     })
@@ -47,14 +47,14 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success: function (res) {
-        console.log(res.data.dataList[0])
+        //console.log(res.data.dataList[0])
         if (res.data.success) {
         wx.hideLoading();
           that.setData({
             ordeItem: res.data.dataList[0]
           })
         } else {
-          //console.log("请求订单状态失败")
+          ////console.log("请求订单状态失败")
         }
       }
     });
@@ -86,7 +86,7 @@ Page({
               'content-type': 'application/json' // 默认值
             },
             success: function (res) {
-              //console.log(res.data)
+              ////console.log(res.data)
               if (res.data.success) {
                 wx.showToast({
                   title: res.data.message

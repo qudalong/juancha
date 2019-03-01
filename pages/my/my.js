@@ -59,7 +59,6 @@ Page({
       },
       success: function (res) {
           wx.hideLoading();   
-        console.log(res.data)
         if (res.data.success) {   
           var message = res.data.data;
           that.setData({
